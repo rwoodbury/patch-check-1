@@ -15,7 +15,9 @@ require_once('vendor/autoload.php');
 
 
 $action = (isset($_GET['action'])) ? $_GET['action'] : false;
-$messageList = array();
+$result = [];
+
+$view = null;
 
 try {
     if ($action == 'upload' && !empty($_POST)) {
@@ -33,31 +35,39 @@ try {
         }
 
         if (isset($result['result'])) {
-            $fh = @fopen(ACTIVITY_LOG, 'a');
+            $logger = new Zend\Log\Logger;
+            $logger->addWriter('stream', null, array('stream' => 'file://' . ACTIVITY_LOG));
+
             foreach ($result['result']['filename'] as $fileId => $filename) {
                 if (file_exists($result['new_file_name'][$fileId])) {
                     unlink(UPLOAD_PATH . $result['new_file_name'][$fileId]);
                 }
-                // checked patches statistic collection
-                $data = date('Y-m-d H:i:s') . ': ' . $filename . "\n";
-                @fwrite($fh, $data);
+
+                $logger->info($filename);
             }
-            @fclose($fh);
+        }
+
+        if (!NO_AJAX) {
+            $view = 'json';
         }
 
         $result = $result['result'];
         $result['checkResults'] = $checkResults;
-
-        if (!NO_AJAX) {
-            echo json_encode($result);
-            die;
-        }
     }
 
-    require_once 'view/index.phtml';
+    switch ($view) {
+        case 'json':
+        require_once 'views/json.phtml';
+        break;
 
+        case 'multi':
+        require_once 'views/multi.phtml';
+        break;
+
+        default:
+        require_once 'views/index.phtml';
+    }
 }
 catch (Exception $e) {
-    require_once 'view/error.phtml';
+    require_once 'views/error.phtml';
 }
-

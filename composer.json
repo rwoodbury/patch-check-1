@@ -5,7 +5,8 @@
         "zendframework/zend-stdlib": "^2.7@stable",
         "zendframework/zend-form": "^2.7@stable",
         "zendframework/zend-servicemanager": "^2.7@stable",
-        "zendframework/zend-json": "^2.6@stable"
+        "zendframework/zend-json": "^2.6@stable",
+        "zendframework/zend-log": "^2.6@stable"
     },
     "license": "MIT",
     "authors": [
