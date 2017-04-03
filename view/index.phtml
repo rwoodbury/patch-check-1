@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript" src="js/jquery/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/plugins/mfupload.js"></script>
+    <script type="text/javascript" src="js/uploader.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/style.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="css/uploader.css" media="all" />
+
+    <title>Patch check</title>
+</head>
+<body>
+<button onclick="$('#uploader').hide(); $('#uploader_new').show();  $(this).hide();">Check multiple patches</button>
+
+<div id="main_content_div">
+    <div id="uploader">
+        <div id="upload"></div>
+        <div id="uploaded"></div>
+    </div>
+    <div id="uploader_new" style="display: none">
+        <form action="index.php?action=upload" enctype="multipart/form-data" method="post">
+            <strong>Keep in mind, that these patches will be uploaded in following order</strong>
+            <ul>
+                <li><input type="file" name="mf_file_uploader[]" /><button class="minus" type="button">-</button><button class="plus" type="button">+</button></li>
+            </ul>
+            <input type="submit" value="Upload" />
+            <input type="hidden" name="folder" value="/tmp/_patchchk_uploads/" />
+            <input type="hidden" name="file_element" value="mf_file_uploader" />
+            <input type="hidden" name="no_ajax" value="1" />
+        </form>
+    </div>
+
+<div id="results_div">
+<table id="result_table" class="result_table">
+    <thead>
+        <tr><th>EE</th><th>CE</th><th>PE</th><th>tag date</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>&nbsp;</td><td>1.3.2.3</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.3.2.4</td><td>1.3.2.4</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.6.0.0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.7.0.0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.7.1.0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.8.0.0</td><td>&nbsp;</td><td>1.8.0.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.9.0.0</td><td>1.4.0.0</td><td>1.9.0.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.9.1.0</td><td>1.4.0.1</td><td>1.9.1.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.9.1.1</td><td>1.4.1.0</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.10.0.0</td><td>&nbsp;</td><td>1.10.0.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.10.0.1</td><td>1.4.1.1</td><td>1.10.0.1</td><td>&nbsp;</td></tr>
+        <tr><td>1.10.0.2</td><td>1.4.2.0</td><td>1.10.0.2</td><td>&nbsp;</td></tr>
+        <tr><td>1.10.1.0</td><td>1.5.0.0</td><td>1.10.1.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.10.1.1</td><td>1.5.0.1</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.11.0.0</td><td>1.5.1.0</td><td>1.11.0.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.11.0.1</td><td>1.6.0.0</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.11.0.2</td><td>1.6.1.0</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.11.1.0</td><td>1.6.2.0</td><td>1.11.1.0</td><td>&nbsp;</td></tr>
+        <tr><td>1.11.2.0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.12.0.0</td><td>1.7.0.0</td><td>1.12.0.0</td><td>2012-5-1</td></tr>
+        <tr><td>1.12.0.1</td><td>1.7.0.1</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>1.12.0.2</td><td>1.7.0.2</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>1.8.0.0</td><td>&nbsp;</td><td>2013-9-23</td></tr>
+        <tr><td>1.13.0.0</td><td>&nbsp;</td><td>&nbsp;</td><td>2013-4-9</td></tr>
+        <tr><td>1.13.0.1</td><td>&nbsp;</td><td>&nbsp;</td><td>2013-6-4</td></tr>
+        <tr><td>1.13.0.2</td><td>&nbsp;</td><td>&nbsp;</td><td>2013-8-14</td></tr>
+        <tr><td>&nbsp;</td><td>1.8.1.0</td><td>&nbsp;</td><td>2013-9-19</td></tr>
+        <tr><td>1.13.1.0</td><td>&nbsp;</td><td>&nbsp;</td><td>2013-11-19</td></tr>
+        <tr><td>1.14.0.0</td><td>1.9.0.0</td><td>&nbsp;</td><td>2014-5-12</td></tr>
+        <tr><td>1.14.0.1</td><td>1.9.0.1</td><td>&nbsp;</td><td>2014-5-14</td></tr>
+        <tr><td>1.14.1.0</td><td>1.9.1.0</td><td>&nbsp;</td><td>2014-11-9</td></tr>
+        <tr><td>1.14.2.0</td><td>&nbsp;</td><td>&nbsp;</td><td>2015-4-19</td></tr>
+        <tr><td>&nbsp;</td><td>1.9.1.1</td><td>&nbsp;</td><td>2015-4-29</td></tr>
+        <tr><td>&nbsp;</td><td>1.9.2.0</td><td>&nbsp;</td><td>2015-7-8</td></tr>
+        <tr><td>1.14.2.1</td><td>1.9.2.1</td><td>&nbsp;</td><td>2015-7-29</td></tr>
+        <tr><td>1.14.2.2</td><td>1.9.2.2</td><td>&nbsp;</td><td>2015-10-27</td></tr>
+        <tr><td>1.14.2.3</td><td>1.9.2.3</td><td>&nbsp;</td><td>2016-1-21</td></tr>
+        <tr><td>1.14.2.4</td><td>1.9.2.4</td><td>&nbsp;</td><td>2016-2-23</td></tr>
+        <tr><td>1.14.3.0</td><td>1.9.3.0</td><td>&nbsp;</td><td>2016-10-13</td></tr>
+        <tr><td>1.14.3.1</td><td>1.9.3.1</td><td>&nbsp;</td><td>2016-11-5</td></tr>
+        <tr><td>1.14.3.2</td><td>1.9.3.2</td><td>&nbsp;</td><td>2017-2-8</td></tr>
+    </tbody>
+</table>
+</div>
+
+    <div id="message_div">
+        <?php echo $messageList ?>
+    </div>
+</div>
+</body>
