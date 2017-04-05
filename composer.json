@@ -6,7 +6,9 @@
         "zendframework/zend-form": "^2.7@stable",
         "zendframework/zend-servicemanager": "^2.7@stable",
         "zendframework/zend-json": "^2.6@stable",
-        "zendframework/zend-log": "^2.6@stable"
+        "zendframework/zend-log": "^2.6@stable",
+        "diskerror/typed": "*",
+        "diskerror/utilities": "*"
     },
     "license": "MIT",
     "authors": [

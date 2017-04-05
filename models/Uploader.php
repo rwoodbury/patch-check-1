@@ -1,6 +1,6 @@
 <?php
 
-class File_Uploader
+class Uploader
 {
     /**
      * Maximum size of uploaded file.
