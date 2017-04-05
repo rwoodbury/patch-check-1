@@ -43,3 +43,8 @@ table.result_table tr td {
     padding: 3px 10px;
     width: 120px;
 }
+
+[title] {
+    background-image: url(../pic/dot.png);
+    background-size: cover;
+}
