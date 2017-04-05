@@ -2,7 +2,7 @@
 
 body {
     background-color: #FFFFFA;
-    font: 16px sans-serif;
+    font: 15px sans-serif;
 }
 
 div {
@@ -41,7 +41,7 @@ td.td_ok {
 
 table.result_table tr td {
     padding: 3px 10px;
-    width: 120px;
+    width: 108px;
 }
 
 [title] {

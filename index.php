@@ -72,6 +72,7 @@ switch ($view) {
     break;
 
     default:
+    $versionRows = require 'config/version_relation.php';
     require_once 'views/index.phtml';
 }
 

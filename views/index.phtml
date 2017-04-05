@@ -43,7 +43,7 @@
 
 <?php
 
-foreach (require 'config/version_relation.php' as $row) {
+foreach ($versionRows as $row) {
     echo '<tr>';
     foreach ($row as $k=>$col) {
         if ($col[0]==='') {
@@ -51,7 +51,7 @@ foreach (require 'config/version_relation.php' as $row) {
         }
         else {
             $id = preg_replace('/(\d)\.(\d\d?)\.(\d)\.(\d)/', $k . '_\1_\2_\3_\4', $col[0]);
-            echo '<td id="' . $id . '"' .  ($col[1]?' title="git tag date: ' . $col[1] . '"':'') . '>' . $col[0] . '</td>';
+            echo '<td id="' . $id . '"' .  ($col[1]?' title="' . $col[1] . '"':'') . '>' . $col[0] . '</td>';
         }
     }
     echo '</tr>
